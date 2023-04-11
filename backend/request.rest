@@ -1,0 +1,107 @@
+
+//Create user
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "name" : "natabb",
+    "email" : "natabb@gmail.com",
+    "password" : "12345678",
+    "confPassword" : "12345678",
+    "role" : "user"
+}
+
+
+###
+//get all user
+GET http://localhost:5000/users
+
+
+###
+//Get User one
+GET http://localhost:5000/users/8a1d608e-3381-4a0a-8334-40de2e4b5c21
+
+###
+//Update user
+PATCH  http://localhost:5000/users/8a1d608e-3381-4a0a-8334-40de2e4b5c21
+Content-Type: application/json
+
+{
+    "name" : "sena sena",
+    "email" : "ani@gmail.com",
+    "password" : "",
+    "confPassword" : "",
+    "role" : "admin"
+}
+
+
+###
+//delete user
+DELETE http://localhost:5000/users/8b41e517-743b-4c76-af3f-a59d732283df
+
+###
+
+//Create user
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email" : "ani@gmail.com",
+    "password" : "12345678"
+}
+
+###
+//Create user
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email" : "nata@gmail.com",
+    "password" : "12345678"
+}
+
+###
+GET http://localhost:5000/me
+
+
+
+###
+DELETE  http://localhost:5000/logout
+
+
+
+###
+//get all product
+GET http://localhost:5000/product
+
+
+###
+//get sigle product
+GET http://localhost:5000/product/a7607619-e71a-4c1f-8bda-828739595d62
+
+###
+//get all product
+POST  http://localhost:5000/product
+Content-Type: application/json
+
+{
+    "name": "Product9",
+    "price": 3222
+}
+
+
+###
+//get all product
+PATCH http://localhost:5000/product/a7607619-e71a-4c1f-8bda-828739595d62
+Content-Type: application/json
+
+{
+    "name": "Product9 updated",
+    "price": 322456767
+}
+
+
+
+###
+//get all product
+DELETE  http://localhost:5000/product/9d41d672-493a-4538-ac98-2ef5244a4ee5

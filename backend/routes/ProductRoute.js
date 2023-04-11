@@ -5,14 +5,15 @@ import {
     createProduct,
     updateProduct,
     deleteProduct
-} from "../controllers/Products.js"
+} from "../controllers/Products.js";
+import { verifyUser } from "../middleware/AuthUser.js";
 
-const router =express.Router()
+const router =express.Router();
 
-router.get('/product', getProducts)
-router.get('/product/:id', getProductsById)
-router.post('/product', createProduct)
-router.patch('/product/:id', updateProduct)
-router.delete('/product/:id', deleteProduct)
+router.get('/product', verifyUser, getProducts);
+router.get('/product/:id', verifyUser, getProductsById);
+router.post('/product', verifyUser, createProduct);
+router.patch('/product/:id', verifyUser, updateProduct);
+router.delete('/product/:id', verifyUser, deleteProduct);
 
 export default router;

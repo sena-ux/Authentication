@@ -38,7 +38,8 @@ const Products = db.define('product', {
     freezeTableName: true
 });
 
-Users.hasMany(Products);Products.belongsTo(Users, {foroignKey: 'userId'});
+Users.hasMany(Products);
+Products.belongsTo(Users, {foroignKey: 'userId'});
 
 
 
