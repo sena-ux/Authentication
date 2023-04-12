@@ -53,3 +53,5 @@ app.use(AuthRoute);
 app.listen(process.env.APP_PORT, (error, result) =>{
     console.log(`Server is running port ${process.env.APP_PORT}`);
 });
+
+

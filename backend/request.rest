@@ -4,11 +4,11 @@ POST http://localhost:5000/users
 Content-Type: application/json
 
 {
-    "name" : "natabb",
-    "email" : "natabb@gmail.com",
-    "password" : "12345678",
-    "confPassword" : "12345678",
-    "role" : "user"
+    "name" : "Sena_Pernata-UX",
+    "email" : "senasmk@gmail.com",
+    "password" : "sena1234!@#$",
+    "confPassword" : "sena1234!@#$",
+    "role" : "admin"
 }
 
 
@@ -58,6 +58,18 @@ Content-Type: application/json
 {
     "email" : "nata@gmail.com",
     "password" : "12345678"
+}
+
+
+
+###
+//Create user
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email" : "senasmk@gmail.com",
+    "password" : "sena1234!@#$"
 }
 
 ###

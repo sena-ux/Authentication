@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 import axios from 'axios';
 
 const Productslist = () => {
@@ -15,9 +15,14 @@ const Productslist = () => {
     }
 
 
-    const deleteProduct = async(productId) =>{
-        await axios.delete(`http://localhost:5000/product/${productId}`);
-        getProduct();
+    const deleteProduct = async (productId) => {
+        const result = prompt('Yakin hapus data!!!');
+        if (result) {
+            await axios.delete(`http://localhost:5000/product/${productId}`);
+            getProduct();
+        } else{
+            redirect("/product");
+        }
     }
 
 
@@ -45,7 +50,7 @@ const Productslist = () => {
                             <td>{products.user.name}</td>
                             <td>
                                 <Link to={`/product/edit/${products.uuid}`} className='button is-info'>Edit</Link>
-                                <button onClick={()=> deleteProduct(products.uuid)} className='button is-info is-danger ml-3'>Delete</button>
+                                <button onClick={() => deleteProduct(products.uuid)} className='button is-info is-danger ml-3'>Delete</button>
                             </td>
                         </tr>
                     ))}

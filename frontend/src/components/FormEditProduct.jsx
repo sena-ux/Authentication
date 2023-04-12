@@ -12,7 +12,7 @@ const FormEditProduct = () => {
     useEffect(()=>{
         const getProductById = async()=>{
             try {
-                const response = await axios.get(`http://localhost:5000/product/${id}`);
+                const response = await axios.get(`http://localhost:5000/product/edit/${id}`);
                 setName(response.data.name);
                 setPrice(response.data.price);
             } catch (error) {
