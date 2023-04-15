@@ -1,11 +1,10 @@
 import React from 'react';
 import {NavLink, useNavigate} from "react-router-dom";
-import logo from "../logo_smk.png";
 import { useDispatch, useSelector } from 'react-redux';
 import { LogOut, reset } from '../features/authSlice';
 
 
-const navbar = () => {
+const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { users } = useSelector((state) => state.auth);
@@ -16,13 +15,12 @@ const navbar = () => {
       navigate("/");
   };
 
-
   return (
     <div>
         <nav className="navbar is-fixed-top has-shadow" role="navigation" aria-label="main navigation">
           <div className="navbar-brand">
               <NavLink to="/dashboard" className="navbar-item">
-              <img src={logo} alt="logo"/><b className='p-3'>SMKN 1 ABANG</b>
+              <img src="/keranjang.png" alt="logo"/><b className='p-3'>LUH<i> PUTU---</i>LPsHOP</b>
             </NavLink>
             <a href='!#' role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
               <span aria-hidden="true"></span>
@@ -49,4 +47,4 @@ const navbar = () => {
   )
 }
 
-export default navbar
+export default Navbar

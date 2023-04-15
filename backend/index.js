@@ -30,8 +30,6 @@ app.use(session ({
 }));
 
 
-
-
 // (async()=>{
 //     await db.sync();
 // })();
@@ -47,11 +45,9 @@ app.use(UserRoute);
 app.use(ProductRoute);
 app.use(AuthRoute);
 
-
 // store.sync();
 
 app.listen(process.env.APP_PORT, (error, result) =>{
     console.log(`Server is running port ${process.env.APP_PORT}`);
 });
-
 
