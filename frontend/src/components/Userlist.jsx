@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
 
 const Userlist = () => {
 
     const [users, setUsers] = useState([]);
-    const navigate = useNavigate();
 
     useEffect(() => {
         getUsers();
@@ -18,14 +17,9 @@ const Userlist = () => {
     }
 
 
-    const deleteUsers = async(usersId) => {
-        const result = prompt('Yakin hapus data!!!');
-        if (result) {
-            await axios.delete(`http://localhost:5000/users/${usersId}`);
-            getUsers();
-        } else {
-            navigate("/users");
-        }
+    const deleteUsers = async (usersId) => {
+        await axios.delete(`http://localhost:5000/users/${usersId}`);
+        getUsers();
     };
 
 
@@ -48,12 +42,12 @@ const Userlist = () => {
                 <tbody>
                     {users.map((user, index) => (
                         <tr key={user.uuid}>
-                            <td>{index +1}</td>
+                            <td>{index + 1}</td>
                             <td>{user.nama}</td>
                             <td>{user.email}</td>
                             <td>{user.role}</td>
                             <td>
-                            <Link to={`/users/edit/${user.uuid}`} className='button is-info'>Edit</Link>
+                                <Link to={`/users/edit/${user.uuid}`} className='button is-info'>Edit</Link>
                                 <button onClick={() => deleteUsers(user.uuid)} className='button is-info is-danger ml-3'>Delete</button>
                             </td>
                         </tr>

@@ -19,11 +19,11 @@ GET http://localhost:5000/users
 
 ###
 //Get User one
-GET http://localhost:5000/users/8a1d608e-3381-4a0a-8334-40de2e4b5c21
+GET http://localhost:5000/users/52f9d044-5d31-41b6-8e46-1ef1c602e06f
 
 ###
 //Update user
-PATCH  http://localhost:5000/users/8a1d608e-3381-4a0a-8334-40de2e4b5c21
+PATCH  http://localhost:5000/users/c7217d16-53ce-45b1-85c6-0bded60d82d9
 Content-Type: application/json
 
 {
@@ -37,7 +37,7 @@ Content-Type: application/json
 
 ###
 //delete user
-DELETE http://localhost:5000/users/8b41e517-743b-4c76-af3f-a59d732283df
+DELETE http://localhost:5000/users/c7217d16-53ce-45b1-85c6-0bded60d82d9
 
 ###
 
@@ -98,7 +98,9 @@ Content-Type: application/json
 
 {
     "name": "Product9",
-    "price": 3222
+    "price": 3222,
+    "gambar": "jasfsjfakjdshfkjds",
+    "description" : "ini product saya"
 }
 
 

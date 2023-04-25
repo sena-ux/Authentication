@@ -34,13 +34,31 @@ const Products = db.define('product', {
             notEmpty: true
         }
     },
+    gambar : {
+        type : DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notEmpty: true,
+        }
+    },
+    description : {
+        type : DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notEmpty: true,
+        }
+    },
+    url: DataTypes.STRING,
 },{
     freezeTableName: true
 });
 
+// (async()=>{
+//     await db.sync();
+// })();
+
 Users.hasMany(Products);
 Products.belongsTo(Users, {foroignKey: 'userId'});
-
 
 
 export default Products;

@@ -1,7 +1,7 @@
 import Users from "../models/UserModels.js"
 import argon2 from "argon2"
 
-export const getUser = async(req, res ) =>{
+export const getUsers = async(req, res ) =>{
     try {
         const response = await Users.findAll({
             attributes: ['uuid', 'name', 'email', 'role']
@@ -11,7 +11,7 @@ export const getUser = async(req, res ) =>{
         res.status(500).json({msg: error.message});
     }
 }
-export const getUserById = async(req, res ) =>{
+export const getUsersById = async(req, res ) =>{
     try {
         const response = await Users.findOne({
             attributes: ['uuid', 'name', 'email', 'role'],
@@ -24,7 +24,7 @@ export const getUserById = async(req, res ) =>{
         res.status(500).json({msg: error.message});
     }
 }
-export const createUser = async(req, res ) =>{
+export const createUsers = async(req, res ) =>{
     const {name, email,password, confPassword, role} = req.body;
     if(password !== confPassword) return res.status(400).json({msg: "Password dan confPassword tiddak cocok"});
     const hashPassword = await argon2.hash(password);
@@ -41,7 +41,7 @@ export const createUser = async(req, res ) =>{
         
     }
 }
-export const updateUser = async(req, res ) =>{
+export const updateUsers = async(req, res ) =>{
         const user = await Users.findOne({
             where: {
                 uuid: req.params.id
@@ -74,7 +74,7 @@ export const updateUser = async(req, res ) =>{
             
         }
 }
-export const deleteUser = async(req, res ) =>{
+export const deleteUsers = async(req, res ) =>{
     const user = await Users.findOne({
             where: {
                 uuid: req.params.id
@@ -90,6 +90,5 @@ export const deleteUser = async(req, res ) =>{
             res.status(200).json({msg: "User Deleted!!!"});
         } catch (error) {
             res.status(400).json({msg: error.message});
-            
         }
 }

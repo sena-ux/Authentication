@@ -1,4 +1,5 @@
 import express from "express";
+import FileUpload from "express-fileupload";
 import cors from "cors";
 import session from "express-session";
 import dotenv from "dotenv";
@@ -11,6 +12,12 @@ import SequelizeStore from "connect-session-sequelize";
 
 dotenv.config();
 const app = express();
+
+app.use(cors());
+app.use(express.json());
+app.use(FileUpload());
+app.use(express.static("public"));
+app.use(ProductRoute);
 
 const sessionStore = SequelizeStore(session.Store);
 
@@ -33,7 +40,6 @@ app.use(session ({
 // (async()=>{
 //     await db.sync();
 // })();
-
 
 app.use(cors ({
     credentials : true,
